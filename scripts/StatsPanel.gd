@@ -11,7 +11,28 @@ func update_stats_display(stats: Dictionary):
 
 	for stat_name in stats.keys():
 		var label = Label.new()
-		label.text = "%s: %d" % [stat_name.capitalize(), stats[stat_name]]
+		
+		match stat_name:
+			"lif":
+				label.text = "%s: %d" % ["Life (LIF)", stats[stat_name]]
+			"spd":
+				label.text = "%s: %d" % ["Speed (SPD)", stats[stat_name]]
+			"atk":
+				label.text = "%s: %d" % ["Attack (ATK)", stats[stat_name]]
+			"def":
+				label.text = "%s: %d" % ["Defense (DEF)", stats[stat_name]]
+			"mag":
+				label.text = "%s: %d" % ["Magic (MAG)", stats[stat_name]]
+			"fai":
+				label.text = "%s: %d" % ["Faith (FAI)", stats[stat_name]]
+			"res":
+				label.text = "%s: %d" % ["Resolve (RES)", stats[stat_name]]
+			"hte":
+				label.text = "%s: %d" % ["Hate (HTE)", stats[stat_name]]
+			"gld":
+				label.text = "%s: %d" % ["Gold (GLD)", stats[stat_name]]
+			"exp":
+				label.text = "%s: %d" % ["Experience (EXP)", stats[stat_name]]
 		stats_box.add_child(label)
 		stat_labels[stat_name] = label
 

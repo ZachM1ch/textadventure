@@ -3,9 +3,16 @@ extends Node
 signal stat_changed(stat_name: String, new_value: int)
 
 var stats = {
-	"health": 100,
-	"strength": 10,
-	"agility": 5
+	"lif": 5,
+	"spd": 2,
+	"atk": 2,
+	"def": 4,
+	"mag": 7,
+	"fai": 1,
+	"res": 3,
+	"hte": 8,
+	"gld": 1,
+	"exp": 4
 }
 
 func get_stat(stat_name: String) -> int:
