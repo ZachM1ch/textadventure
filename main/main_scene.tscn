@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://c737647kk6srs"]
+
+[ext_resource type="Script" uid="uid://isi21ubsol6d" path="res://scripts/MainScene.gd" id="1_xc8me"]
+[ext_resource type="Script" uid="uid://d0v2jmhnf2u7n" path="res://scripts/StatsPanel.gd" id="2_m3hh0"]
+[ext_resource type="Script" uid="uid://dl8o6t5ws8yse" path="res://scripts/Inventory.gd" id="2_v3ear"]
+[ext_resource type="Script" uid="uid://dbweooq44uncm" path="res://scripts/Stats.gd" id="3_m3hh0"]
+[ext_resource type="Script" uid="uid://ccxyeprhjg4jt" path="res://scripts/Parser.gd" id="4_vtfip"]
+
+[node name="Main Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xc8me")
+
+[node name="TextInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 583.0
+offset_right = 994.0
+offset_bottom = 623.0
+
+[node name="OutputLog" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 21.0
+offset_right = 922.0
+offset_bottom = 559.0
+
+[node name="SubmitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 585.0
+offset_right = 1114.0
+offset_bottom = 626.0
+text = "Submit"
+
+[node name="StatsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 22.0
+offset_right = 1139.0
+offset_bottom = 556.0
+script = ExtResource("2_m3hh0")
+
+[node name="StatsBox" type="VBoxContainer" parent="StatsPanel"]
+layout_mode = 0
+offset_right = 204.0
+offset_bottom = 534.0
+
+[node name="PlayerData" type="Node" parent="."]
+
+[node name="Inventory" type="Node" parent="PlayerData"]
+script = ExtResource("2_v3ear")
+
+[node name="Stats" type="Node" parent="PlayerData"]
+script = ExtResource("3_m3hh0")
+
+[node name="Parser" type="Node" parent="."]
+script = ExtResource("4_vtfip")

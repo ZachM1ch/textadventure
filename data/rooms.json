@@ -1,0 +1,44 @@
+{
+  "bedroom": {
+	"name": "Bedroom",
+	"description": "A small room with a bed, a dresser, and some scattered books.",
+	"items": {
+	  "key": "A small brass key. It probably opens something.",
+	  "notebook": "An old leather notebook filled with scribbles."
+	},
+	"objects": {
+	  "dresser": {
+		"description": "An old oak dresser. One drawer is slightly open.",
+		"interactions": {
+		  "open": "You open the dresser and find nothing but dust.",
+		  "search": "You find an old photo tucked in the corner."
+		}
+	  },
+	  "bed": {
+		"description": "A messy, unmade bed with crumpled sheets.",
+		"interactions": {
+		  "sleep": "You lie down briefly but don't fall asleep.",
+		  "search": "You find a coin under the pillow."
+		}
+	  }
+	},
+	"connections": {
+	  "north": "hallway"
+	}
+  },
+  "hallway": {
+	"name": "Hallway",
+	"description": "A long corridor with creaky wooden floors.",
+	"objects": {
+	  "painting": {
+		"description": "A faded painting of a ship at sea.",
+		"interactions": {
+		  "look behind": "You find a crack in the wall, but nothing more."
+		}
+	  }
+	},
+	"connections": {
+	  "south": "bedroom"
+	}
+  }
+}
