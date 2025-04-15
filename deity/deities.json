@@ -1,0 +1,179 @@
+[
+  {
+	"name": "Solanar",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"description": "Solanar is the radiant flame, offering strength and vitality.",
+	"locked": false
+  },
+  {
+	"name": "Nyxar",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  },
+{
+	"name": "Solanar1",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar1",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": false
+  },
+{
+	"name": "Solanar2",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar2",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  },
+{
+	"name": "Solanar3",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar3",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  },
+{
+	"name": "Solanar4",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar4",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  },
+{
+	"name": "Solanar5",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar5",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  },
+{
+	"name": "Solanar6",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar6",
+	"color": "#550088",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  },
+{
+	"name": "Solanar7",
+	"color": "#FFD700",
+	"image": "res://deity/deity_image_solar.png",
+	"modifiers": {
+	  "lif": 2,
+	  "mag": 1,
+	  "res": 1
+	},
+	"locked": false
+  },
+  {
+	"name": "Nyxar7",
+	"color": "#FF0000",
+	"image": "res://deity/deity_image_nyxar.png",
+	"modifiers": {
+	  "fai": 3,
+	  "hte": 2,
+	  "spd": -1
+	},
+	"locked": true
+  }
+]

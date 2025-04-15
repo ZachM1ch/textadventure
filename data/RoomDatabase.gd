@@ -24,11 +24,6 @@ func _load_rooms_from_json():
 		var room_data = parsed_data[room_id]
 		var room = Room.new()
 		
-		var room_items = []
-		var room_objects = []
-		var room_enemies = []
-		var room_pois = []
-		
 		room.name = room_data.get("name", "")
 		room.description = room_data.get("description", "")
 		room.items = room_data.get("items", {})
@@ -53,10 +48,15 @@ func move(direction: String) -> bool:
 func get_current_room_description() -> String:
 	return current_room.describe()
 
-func get_all_room_items() -> Array:
-	var names = []
-	names += current_room.items.keys()
-	names += current_room.objects.keys()
-	names += current_room.enemies.keys()
-	names += current_room.points_of_interest.keys()
+func get_all_room_items() -> Array[String]:
+	var names: Array[String] = []
+	
+	for i in current_room.items.keys():
+		names.append(str(i))
+	for i in current_room.objects.keys():
+		names.append(str(i))
+	for i in current_room.enemies.keys():
+		names.append(str(i))
+	for i in current_room.points_of_interest.keys():
+		names.append(str(i))
 	return names

@@ -10,7 +10,7 @@ class_name Room
 @export var points_of_interest: Dictionary = {}
 
 func describe() -> String:
-	var desc = "[b]" + name + "[/b]\n" + description + "\n"
+	var desc = "\n[b]" + name + "[/b]\n" + description + "\n"
 
 	if items.size() > 0:
 		desc += "Items: " + ", ".join(items.keys()) + "\n"

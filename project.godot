@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="TextAdventure"
-run/main_scene="uid://c737647kk6srs"
+run/main_scene="uid://vbp1cqlax2a0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icons/icon.svg"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
 
 [editor]
 

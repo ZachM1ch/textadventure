@@ -2,40 +2,103 @@ extends Panel
 
 @onready var stats_box = $StatsBox
 var stat_labels = {}
+var effect_labels = {}
 
-func update_stats_display(stats: Dictionary):
-	var box_kids = stats_box.get_children(true)
-	for i in box_kids:
-		i.queue_free()
+var stat_tooltips = {
+	"lif": "Represents your health. If this reaches 0, you die.",
+	"spd": "Determines your action order and evasion.",
+	"atk": "Increases your physical damage.",
+	"def": "Reduces incoming physical damage.",
+	"mag": "Affects the power of spells and arcane effects.",
+	"fai": "Faith-based ability. Influences miracles, blessings.",
+	"res": "Mental fortitude. Resists fear, charm, and madness.",
+	"hte": "Hate fuels certain powerful abilities, but can backfire.",
+	"gld": "Your accumulated wealth.",
+	"exp": "Earn experience to increase your level.",
+	"Level": "Your overall power and progression tier.",
+	"XP to Next": "Experience needed to reach the next level."
+}
+
+var effect_tooltips = {
+	"poisoned": "Loses life each turn. Wears off over time.",
+	"blessed": "Increased defense and healing.",
+	"burning": "Takes damage each turn. Can spread.",
+	"cursed": "Reduced stats or prevents healing.",
+	"focused": "Increased accuracy and critical chance."
+	# Add more as you define them!
+}
+
+func refresh_all(stats: Dictionary, effects: Dictionary):
+	# Clear previous content
+	for child in stats_box.get_children():
+		child.queue_free()
 	stat_labels.clear()
+	effect_labels.clear()
 
+	# Add all stats
 	for stat_name in stats.keys():
-		var label = Label.new()
+		var label = RichTextLabel.new()
+		label.bbcode_enabled = true
+		label.scroll_active = false
+		label.fit_content = true
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD
 		
 		match stat_name:
 			"lif":
-				label.text = "%s: %d" % ["Life (LIF)", stats[stat_name]]
+				label.text = "Life (LIF): %d" % stats[stat_name]
 			"spd":
-				label.text = "%s: %d" % ["Speed (SPD)", stats[stat_name]]
+				label.text = "Speed (SPD): %d" % stats[stat_name]
 			"atk":
-				label.text = "%s: %d" % ["Attack (ATK)", stats[stat_name]]
+				label.text = "Attack (ATK): %d" % stats[stat_name]
 			"def":
-				label.text = "%s: %d" % ["Defense (DEF)", stats[stat_name]]
+				label.text = "Defense (DEF): %d" % stats[stat_name]
 			"mag":
-				label.text = "%s: %d" % ["Magic (MAG)", stats[stat_name]]
+				label.text = "Magic (MAG): %d" % stats[stat_name]
 			"fai":
-				label.text = "%s: %d" % ["Faith (FAI)", stats[stat_name]]
+				label.text = "Faith (FAI): %d" % stats[stat_name]
 			"res":
-				label.text = "%s: %d" % ["Resolve (RES)", stats[stat_name]]
+				label.text = "Resolve (RES): %d" % stats[stat_name]
 			"hte":
-				label.text = "%s: %d" % ["Hate (HTE)", stats[stat_name]]
+				label.text = "Hate (HTE): %d" % stats[stat_name]
 			"gld":
-				label.text = "%s: %d" % ["Gold (GLD)", stats[stat_name]]
+				label.text = "Gold (GLD): %d" % stats[stat_name]
 			"exp":
-				label.text = "%s: %d" % ["Experience (EXP)", stats[stat_name]]
+				label.text = "Experience (EXP): %d" % stats[stat_name]
+			"Level":
+				label.text = "Level: %d" % stats[stat_name]
+			"XP to Next":
+				label.text = "XP to Next: %d" % stats[stat_name]
+			_:
+				label.text = "%s: %s" % [stat_name.capitalize(), str(stats[stat_name])]
+		
 		stats_box.add_child(label)
+		# Add tooltip if we have one
+		if stat_tooltips.has(stat_name):
+			label.tooltip_text = stat_tooltips[stat_name]
 		stat_labels[stat_name] = label
-
-func update_single_stat(stat_name: String, new_value: int):
-	if stat_labels.has(stat_name):
-		stat_labels[stat_name].text = "%s: %d" % [stat_name.capitalize(), new_value]
+		
+	# Add status effects section
+	if !effects.is_empty():
+		var title_effect_label = RichTextLabel.new()
+		title_effect_label.bbcode_enabled = true
+		title_effect_label.scroll_active = false
+		title_effect_label.fit_content = true
+		title_effect_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+		
+		title_effect_label.text = "Status Effects:"
+		stats_box.add_child(title_effect_label)
+		
+		for effect_name in effects.keys():
+			var effect_label = RichTextLabel.new()
+			effect_label.bbcode_enabled = true
+			effect_label.scroll_active = false
+			effect_label.fit_content = true
+			effect_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+		
+			var duration = effects[effect_name]
+			effect_label.text = "%s (%s)" % [effect_name.capitalize(), duration if duration >= 0 else "∞"]
+			stats_box.add_child(effect_label)
+			# Add tooltip if we have one
+			if effect_tooltips.has(effect_name):
+				effect_label.tooltip_text = effect_tooltips[effect_name]
+			effect_labels[effect_name] = effect_label

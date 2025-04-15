@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://vbp1cqlax2a0"]
+
+[ext_resource type="Script" uid="uid://bns4oatavt3jm" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqorp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="Text Adventure" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Text Adventure"
+fit_content = true
+
+[node name="NewButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="ExitDialog" type="ConfirmationDialog" parent="."]

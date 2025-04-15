@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://b26swabvbgr4o"]
+
+[ext_resource type="Script" uid="uid://p2hns3s62b64" path="res://scripts/NewRun.gd" id="1_faoww"]
+
+[node name="NewRun" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_faoww")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 44.0
+offset_right = 801.0
+offset_bottom = 75.0
+bbcode_enabled = true
+text = "New Run"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 29.0
+offset_right = 138.0
+offset_bottom = 95.0
+text = "Back"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 88.0
+offset_right = 669.0
+offset_bottom = 135.0
+bbcode_enabled = true
+text = "Choose Your Deity"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 179.0
+offset_right = 1141.0
+offset_bottom = 481.0
+
+[node name="DeityContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 510.0
+offset_right = 640.0
+offset_bottom = 617.0
+text = "Select"
+
+[node name="TooltipPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TooltipText" type="RichTextLabel" parent="TooltipPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+fit_content = true
