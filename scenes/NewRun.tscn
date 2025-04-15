@@ -11,6 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_faoww")
 
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 33.0
+offset_right = 672.0
+offset_bottom = 81.0
+color = Color(0, 0, 0, 1)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 342.0
@@ -43,10 +51,10 @@ horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 179.0
-offset_right = 1141.0
-offset_bottom = 481.0
+offset_left = 13.0
+offset_top = 125.0
+offset_right = 1144.0
+offset_bottom = 414.0
 
 [node name="DeityContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -71,3 +79,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 bbcode_enabled = true
 fit_content = true
+
+[node name="NavButtons" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 441.0
+offset_right = 734.0
+offset_bottom = 494.0
+alignment = 1
+
+[node name="LeftButton" type="Button" parent="NavButtons"]
+layout_mode = 2
+text = "<"
+
+[node name="RightButton" type="Button" parent="NavButtons"]
+layout_mode = 2
+text = ">"
