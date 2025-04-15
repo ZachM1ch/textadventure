@@ -132,6 +132,17 @@ func _create_deity_card(deity: Dictionary) -> Control:
 			box.add_child(mod_label)
 
 	box.tooltip_text = deity.get("description", "No information available.")
+	
+	# Capture the index at the moment this card is added
+	var this_index = all_cards.size()
+	box.gui_input.connect(func(event):
+		if event is InputEventMouseButton and event.pressed:
+			selected_card_index = this_index
+			_highlight_selected_card()
+			_update_background()
+			_scroll_selected_card_to_center()
+	)
+
 	return box
 
 func _create_empty_card() -> Control:
