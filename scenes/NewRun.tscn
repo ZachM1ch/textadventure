@@ -55,9 +55,12 @@ offset_left = 13.0
 offset_top = 125.0
 offset_right = 1144.0
 offset_bottom = 414.0
+follow_focus = true
+draw_focus_border = true
 
 [node name="DeityContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="SelectButton" type="Button" parent="."]
 layout_mode = 0
