@@ -3,22 +3,61 @@
 	"name": "Bedroom",
 	"description": "A small room with a bed, a dresser, and some scattered books.",
 	"items": {
-	  "key": "A small brass key. It probably opens something.",
-	  "notebook": "An old leather notebook filled with scribbles."
+	  "key": {
+		"description": "A small brass key. It probably opens something."
+	  },
+	  "notebook": {
+		"description": "An old leather notebook filled with scribbles."
+	  }
 	},
 	"objects": {
 	  "dresser": {
 		"description": "An old oak dresser. One drawer is slightly open.",
+		"state": {
+		  "searched": false,
+		  "opened": false
+		},
 		"interactions": {
-		  "open": "You open the dresser and find nothing but dust.",
-		  "search": "You find an old photo tucked in the corner."
+		  "open": {
+			"condition": "!state.opened",
+			"response": "You open the dresser and find nothing but dust.",
+			"effects": {
+			  "set_state": { "opened": true }
+			}
+		  },
+		  "search": {
+			"condition": "!state.searched",
+			"response": "You find an old photo tucked in the corner.",
+			"effects": {
+			  "add_item": {
+				"name": "photo",
+				"description": "A faded photo of two smiling strangers."
+			  },
+			  "set_state": { "searched": true }
+			}
+		  }
 		}
 	  },
 	  "bed": {
 		"description": "A messy, unmade bed with crumpled sheets.",
+		"state": {
+		  "searched": false
+		},
 		"interactions": {
-		  "sleep": "You lie down briefly but don't fall asleep.",
-		  "search": "You find a coin under the pillow."
+		  "sleep": {
+			"response": "You lie down briefly but don't fall asleep."
+		  },
+		  "search": {
+			"condition": "!state.searched",
+			"response": "You find a coin under the pillow.",
+			"effects": {
+			  "add_item": {
+				"name": "coin",
+				"description": "A small, worn copper coin with strange markings."
+			  },
+			  "set_state": { "searched": true }
+			}
+		  }
 		}
 	  }
 	},
@@ -29,11 +68,21 @@
   "hallway": {
 	"name": "Hallway",
 	"description": "A long corridor with creaky wooden floors.",
+	"items": {},
 	"objects": {
 	  "painting": {
 		"description": "A faded painting of a ship at sea.",
+		"state": {
+		  "checked": false
+		},
 		"interactions": {
-		  "look behind": "You find a crack in the wall, but nothing more."
+		  "look behind": {
+			"condition": "!state.checked",
+			"response": "You find a crack in the wall, but nothing more.",
+			"effects": {
+			  "set_state": { "checked": true }
+			}
+		  }
 		}
 	  }
 	},

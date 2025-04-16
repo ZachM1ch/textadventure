@@ -4,8 +4,8 @@ class_name Room
 @export var name: String = ""
 @export var description: String = ""
 @export var connections: Dictionary = {}
-@export var items: Dictionary = {}   # key: description
-@export var objects: Dictionary = {} # key: {description, interactions}
+@export var items: Dictionary = {}  # key: {description: String}
+@export var objects: Dictionary = {}  # {name: {description, state, interactions}}
 @export var enemies: Dictionary = {}
 @export var points_of_interest: Dictionary = {}
 
@@ -13,7 +13,10 @@ func describe() -> String:
 	var desc = "\n[b]" + name + "[/b]\n" + description + "\n"
 
 	if items.size() > 0:
-		desc += "Items: " + ", ".join(items.keys()) + "\n"
+		var item_names: Array[String] = []
+		for item_name in items.keys():
+			item_names.append(str(item_name))
+		desc += "Items: " + ", ".join(item_names) + "\n"
 	if objects.size() > 0:
 		desc += "Objects: " + ", ".join(objects.keys()) + "\n"
 	if enemies.size() > 0:

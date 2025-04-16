@@ -44,9 +44,6 @@ func _ready():
 
 	add_child(room_database)
 	_print_to_log(room_database.get_current_room_description())
-	
-	
-
 
 func _on_submit_pressed():
 	var input_text = text_input.text
@@ -83,12 +80,15 @@ func _process_command(parsed: Dictionary, input_text: String):
 		"get":
 			if args.size() > 0:
 				var item = args[0]
-				if item in room_database.current_room.items:
-					inventory.add_item(item, room_database.current_room.items[item])
+				if room_database.current_room.items.has(item):
+					var item_data = room_database.current_room.items[item]
+					var desc = item_data.get("description", "An item.") if typeof(item_data) == TYPE_DICTIONARY else str(item_data)
+					inventory.add_item(item, desc)
 					room_database.current_room.items.erase(item)
 					_print_to_log("You take the " + item + ".")
 				else:
 					_print_to_log("There is no " + item + " here.")
+
 		"go":
 			if args.size() > 0:
 				if room_database.move(args[0]):
@@ -103,15 +103,12 @@ func _process_command(parsed: Dictionary, input_text: String):
 				var r = room_database.current_room
 
 				if r.objects.has(target):
-					var interactions = r.objects[target].get("interactions", {})
-					if interactions.has(action):
-						_print_to_log(interactions[action])
-						return
+					_process_interaction(r.objects[target], action, "object")
+					return
 				if r.points_of_interest.has(target):
-					var interactions = r.points_of_interest[target].get("interactions", {})
-					if interactions.has(action):
-						_print_to_log(interactions[action])
-						return
+					_process_interaction(r.points_of_interest[target], action, "poi")
+					return
+
 				_print_to_log("You can't do that.")
 			else:
 				_print_to_log("Try something like: open dresser or search bed.")
@@ -184,9 +181,13 @@ func _examine_target(target: String):
 	var r = room_database.current_room
 
 	if inventory.items.has(target):
-		_print_to_log(inventory.items[target])
+		_print_to_log(inventory.get_description(target))
 	elif r.items.has(target):
-		_print_to_log(r.items[target])
+		var item_entry = r.items[target]
+		if typeof(item_entry) == TYPE_DICTIONARY:
+			_print_to_log(item_entry.get("description", "You see nothing unusual."))
+		else:
+			_print_to_log(item_entry)
 	elif r.objects.has(target):
 		_print_to_log(r.objects[target].get("description", "You see nothing unusual."))
 	elif r.enemies.has(target):
@@ -205,3 +206,48 @@ func _on_effects_changed():
 func _on_level_up(new_level: int):
 	_print_to_log("You leveled up! You are now level %d!" % new_level)
 	# No need to update stats panel here, stat_changed will already be triggered
+
+func _process_interaction(target: Dictionary, action: String, source_type: String):
+	if not target.has("interactions"):
+		_print_to_log("You can't do that.")
+		return
+
+	var interactions = target["interactions"]
+
+	if not interactions.has(action):
+		_print_to_log("You can't do that.")
+		return
+
+	var entry = interactions[action]
+
+	# Handle condition (optional)
+	if entry.has("condition"):
+		var condition_str = entry["condition"]
+		if condition_str == "state.opened" and not target.get("state", {}).get("opened", false):
+			pass  # condition met
+		elif condition_str == "!state.opened" and target.get("state", {}).get("opened", false):
+			_print_to_log("You already did that.")
+			return
+		# You could add more condition parsing here
+
+	# Print response
+	_print_to_log(entry.get("response", "Nothing happens."))
+
+	# Handle effects
+	if entry.has("effects"):
+		var effects = entry["effects"]
+		if effects.has("add_item"):
+			var item_data = effects["add_item"]
+
+			if typeof(item_data) == TYPE_DICTIONARY:
+				var item_name = item_data.get("name", "unknown item")
+				var item_desc = item_data.get("description", "An indescribable item.")
+
+				inventory.add_item(item_name, item_desc)
+				room_database.current_room.items[item_name] = { "description": item_desc }
+				_print_to_log("You obtained: " + item_name)
+			else:
+				# Fallback if someone adds a string instead of dictionary
+				inventory.add_item(item_data, "An item.")
+				room_database.current_room.items[item_data] = { "description": "An item." }
+				_print_to_log("You obtained: " + str(item_data))
