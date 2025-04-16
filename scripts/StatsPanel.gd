@@ -71,6 +71,8 @@ func refresh_all(stats: Dictionary, effects: Dictionary):
 			_:
 				label.text = "%s: %s" % [stat_name.capitalize(), str(stats[stat_name])]
 		
+		label.self_modulate = Color(Global.deity_choice.color)
+		
 		stats_box.add_child(label)
 		# Add tooltip if we have one
 		if stat_tooltips.has(stat_name):

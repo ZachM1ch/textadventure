@@ -1,6 +1,7 @@
 extends Control
 
 @onready var room_database = preload("res://data/RoomDatabase.gd").new()
+@onready var stat_generator = preload("res://scripts/StatGenerator.gd").new()
 
 @onready var text_input = $TextInput
 @onready var output_log = $OutputLog
@@ -13,9 +14,22 @@ var typing_speed := 0.02  # Seconds per character
 var output_queue: Array[String] = []
 var is_typing := false
 
-
 func _ready():
-	#output_log.editable = false
+	var deity_modifiers = Global.deity_choice.get("modifiers", {})
+	var color_str = Global.deity_choice.get("color", "#222222")
+	var color_id = ""
+	if "#" in color_str:
+		color_id = Global.get_color_enum_from_hex(color_str)
+	else:
+		for color in Global.COLOR_NAME_MAP.keys():
+			if color == color_str:
+				color_id = Global.COLOR_NAME_MAP[color]
+			else:
+				color_id = Global.ColorName.GRAY
+	
+	var starting_stats = stat_generator.generate_stats_with_modifiers(deity_modifiers, color_id)
+	stats.load_generated_stats(starting_stats)
+	
 	text_input.grab_focus()
 	text_input.keep_editing_on_text_submit = true
 	$SubmitButton.pressed.connect(_on_submit_pressed)
@@ -28,9 +42,10 @@ func _ready():
 	stats.effects_changed.connect(_on_effects_changed)
 	stats.level_up.connect(_on_level_up)
 
-	
 	add_child(room_database)
 	_print_to_log(room_database.get_current_room_description())
+	
+	
 
 
 func _on_submit_pressed():

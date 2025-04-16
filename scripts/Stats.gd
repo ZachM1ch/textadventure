@@ -5,16 +5,16 @@ signal level_up(new_level: int)
 signal effects_changed()
 
 var stats = {
-	"lif": 5,
-	"spd": 2,
-	"atk": 2,
-	"def": 4,
-	"mag": 7,
-	"fai": 1,
-	"res": 3,
-	"hte": 8,
-	"gld": 1,
-	"exp": 4
+	"lif": 0,
+	"spd": 0,
+	"atk": 0,
+	"def": 0,
+	"mag": 0,
+	"fai": 0,
+	"res": 0,
+	"hte": 0,
+	"gld": 0,
+	"exp": 0
 }
 
 var level: int = 1
@@ -78,3 +78,8 @@ func advance_effects():
 		status_effects.erase(effect)
 	#if to_remove.size() > 0:
 		#emit_signal("effects_changed")
+		
+func load_generated_stats(data: Dictionary):
+	for stat in data.keys():
+		stats[stat] = data[stat]
+		emit_signal("stat_changed", stat, data[stat])

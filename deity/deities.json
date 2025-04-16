@@ -1,179 +1,483 @@
 [
   {
-	"name": "Solanar",
-	"color": "#eb3434",
-	"image": "res://deity/deity_image_solar.png",
+	"name": "The Devourer",
+	"color": "#ff4c4c",
+	"image": "res://deity/deity_image_devourer.png",
 	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
-	  "res": 1
+	  "atk": 3,
+	  "res": 2,
+	  "fai": -2,
+	  "lfp": 1
 	},
-	"description": "Solanar is the radiant flame, offering strength and vitality.",
+	"description": "Consumes all in its path. Endless Hunger.",
 	"locked": false
   },
   {
-	"name": "Nyxar",
-	"color": "#eb7734",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Veiled",
+	"color": "blue",
+	"image": "res://deity/deity_image_veiled.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "mag": 2,
+	  "res": 2,
+	  "atk": -2,
+	  "fai": 1
 	},
-	"locked": false
-  },
-{
-	"name": "Solanar1",
-	"color": "#ebd834",
-	"image": "res://deity/deity_image_solar.png",
-	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
-	  "res": 1
-	},
+	"description": "Shrouded in secrecy, hidden from all. Keeper of Shadows.",
 	"locked": false
   },
   {
-	"name": "Nyxar1",
-	"color": "#7deb34",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Harbinger",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_harbinger.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "hte": 3,
+	  "atk": 2,
+	  "res": -2,
+	  "spd": 1
 	},
-	"locked": false
-  },
-{
-	"name": "Solanar2",
-	"color": "#34eb86",
-	"image": "res://deity/deity_image_solar.png",
-	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
-	  "res": 1
-	},
+	"description": "Bringer of doom and calamity. Omen of Destruction.",
 	"locked": false
   },
   {
-	"name": "Nyxar2",
-	"color": "#34ebd5",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Relentless",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_relentless.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "spd": 3,
+	  "atk": 2,
+	  "res": -2,
+	  "lfp": 1
 	},
+	"description": "Never stops, never rests. Unending Chase.",
 	"locked": true
   },
-{
-	"name": "Solanar3",
-	"color": "#347aeb",
-	"image": "res://deity/deity_image_solar.png",
+  {
+	"name": "The Abyss",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_abyss.png",
 	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
+	  "mag": 2,
+	  "res": 2,
+	  "atk": -2,
+	  "fai": 1
+	},
+	"description": "Stares into the void and consumes all light. Endless Darkness.",
+	"locked": true
+  },
+  {
+	"name": "The Whisperer",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_whisperer.png",
+	"modifiers": {
+	  "mag": 2,
+	  "fai": 2,
+	  "atk": -2,
 	  "res": 1
 	},
+	"description": "Keeper of forbidden secrets and dark truths. Bearer of Whispers.",
 	"locked": false
   },
   {
-	"name": "Nyxar3",
-	"color": "#8634eb",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Desolate",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_desolate.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "res": 3,
+	  "def": 2,
+	  "atk": -2,
+	  "fai": 1
 	},
+	"description": "Embodies despair and isolation. Emptiness Unbound.",
 	"locked": true
   },
-{
-	"name": "Solanar4",
-	"color": "#eb34e8",
-	"image": "res://deity/deity_image_solar.png",
+  {
+	"name": "The Serpent",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_serpent.png",
 	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
+	  "spd": 2,
+	  "atk": 2,
+	  "fai": -2,
 	  "res": 1
 	},
+	"description": "Slithers unseen, striking swiftly. Fang of the Shadows.",
 	"locked": false
   },
   {
-	"name": "Nyxar4",
-	"color": "#631123",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Shattered",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_shattered.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "mag": 3,
+	  "res": 2,
+	  "atk": -2,
+	  "fai": 1
 	},
-	"locked": true
-  },
-{
-	"name": "Solanar5",
-	"color": "#FFD700",
-	"image": "res://deity/deity_image_solar.png",
-	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
-	  "res": 1
-	},
+	"description": "Lives in fragments and broken pieces. Reflections of the Lost.",
 	"locked": false
   },
   {
-	"name": "Nyxar5",
-	"color": "#550088",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Forsaken",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_forsaken.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "def": 2,
+	  "res": 2,
+	  "fai": -2,
+	  "atk": 1
 	},
-	"locked": true
-  },
-{
-	"name": "Solanar6",
-	"color": "#FFD700",
-	"image": "res://deity/deity_image_solar.png",
-	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
-	  "res": 1
-	},
+	"description": "Abandoned by the gods and left to wander. Outcast of the Divine.",
 	"locked": false
   },
   {
-	"name": "Nyxar6",
-	"color": "#550088",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Martyr",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_martyr.png",
 	"modifiers": {
-	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "res": 2,
+	  "def": 2,
+	  "spd": -2,
+	  "lfp": 1
 	},
-	"locked": true
-  },
-{
-	"name": "Solanar7",
-	"color": "#FFD700",
-	"image": "res://deity/deity_image_solar.png",
-	"modifiers": {
-	  "lif": 2,
-	  "mag": 1,
-	  "res": 1
-	},
+	"description": "Endures all pain for the greater good. Bearer of Suffering.",
 	"locked": false
   },
   {
-	"name": "Nyxar7",
-	"color": "#FF0000",
-	"image": "res://deity/deity_image_nyxar.png",
+	"name": "The Corrupter",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_corrupter.png",
+	"modifiers": {
+	  "mag": 3,
+	  "hte": 2,
+	  "fai": -2,
+	  "atk": 1
+	},
+	"description": "Twists purity into darkness. Spreader of Taint.",
+	"locked": false
+  },
+  {
+	"name": "The Tempest",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_tempest.png",
+	"modifiers": {
+	  "atk": 3,
+	  "spd": 2,
+	  "def": -2,
+	  "mag": 1
+	},
+	"description": "Unleashes storms and chaos. Bringer of the Storm.",
+	"locked": false
+  },
+  {
+	"name": "The Eternal",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_eternal.png",
+	"modifiers": {
+	  "res": 3,
+	  "mag": 2,
+	  "spd": -2,
+	  "lfp": 1
+	},
+	"description": "Exists beyond the grasp of time. Keeper of Eternity.",
+	"locked": false
+  },
+  {
+	"name": "The Wanderer",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_wanderer.png",
+	"modifiers": {
+	  "spd": 3,
+	  "res": 2,
+	  "def": -2,
+	  "fai": 1
+	},
+	"description": "Journeys endlessly under the stars. Eternal Traveler.",
+	"locked": false
+  },
+  {
+	"name": "The Deceiver",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_deceiver.png",
+	"modifiers": {
+	  "mag": 3,
+	  "res": 2,
+	  "fai": -2,
+	  "atk": 1
+	},
+	"description": "Masters of lies and illusion. Weavers of Falsehoods.",
+	"locked": false
+  },
+  {
+	"name": "The Purifier",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_purifier.png",
+	"modifiers": {
+	  "atk": 3,
+	  "def": 2,
+	  "mag": -2,
+	  "res": 1
+	},
+	"description": "Burns away all that is impure. Flame of Purity.",
+	"locked": false
+  },
+  {
+	"name": "The Trickster",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_trickster.png",
+	"modifiers": {
+	  "spd": 3,
+	  "mag": 2,
+	  "res": -2,
+	  "atk": 1
+	},
+	"description": "Sows chaos and revels in mischief. Harbinger of Tricks.",
+	"locked": false
+  },
+  {
+	"name": "The Forsworn",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_forsworn.png",
+	"modifiers": {
+	  "res": 3,
+	  "atk": 2,
+	  "fai": -2,
+	  "hte": 1
+	},
+	"description": "Betrays all vows and promises. Oathbreaker.",
+	"locked": false
+  },
+  {
+	"name": "The Revenant",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_revenant.png",
+	"modifiers": {
+	  "lfp": 3,
+	  "def": 2,
+	  "spd": -2,
+	  "res": 1
+	},
+	"description": "Returns from the grave to seek vengeance. Unyielding Spirit.",
+	"locked": false
+  },
+  {
+	"name": "The Enigma",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_enigma.png",
+	"modifiers": {
+	  "mag": 3,
+	  "res": 2,
+	  "atk": -2,
+	  "exp": 1
+	},
+	"description": "Embodies mystery and the unknown. Bearer of Secrets.",
+	"locked": false
+  },
+  {
+	"name": "The Judge",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_judge.png",
+	"modifiers": {
+	  "def": 3,
+	  "res": 2,
+	  "hte": -2,
+	  "atk": 1
+	},
+	"description": "Delivers divine justice. Arbiter of Truth.",
+	"locked": false
+  },
+  {
+	"name": "The Void",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_void.png",
+	"modifiers": {
+	  "mag": 3,
+	  "res": 2,
+	  "lfp": -2,
+	  "hte": 1
+	},
+	"description": "Embraces the infinite emptiness. Herald of the Abyss.",
+	"locked": false
+  },
+  {
+	"name": "The Pilgrim",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_pilgrim.png",
 	"modifiers": {
 	  "fai": 3,
-	  "hte": 2,
-	  "spd": -1
+	  "res": 2,
+	  "glc": -2,
+	  "spd": 1
 	},
+	"description": "Embodies a journey of faith and perseverance. Walker of Sacred Paths.",
+	"locked": false
+  },
+  {
+	"name": "The Weaver",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_weaver.png",
+	"modifiers": {
+	  "mag": 3,
+	  "fai": 2,
+	  "res": -2,
+	  "exp": 1
+	},
+	"description": "Embodies fate and interconnectedness through craftsmanship. Spinner of Destinies.",
+	"locked": false
+  },
+  {
+	"name": "The Forgotten",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_forgotten.png",
+	"modifiers": {
+	  "exp": 3,
+	  "fai": 2,
+	  "spd": -2,
+	  "mag": 1
+	},
+	"description": "Preserves lost knowledge and histories. Guardian of Forgotten Lore.",
+	"locked": false
+  },
+  {
+	"name": "The Fury",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_fury.png",
+	"modifiers": {
+	  "atk": 3,
+	  "hte": 2,
+	  "def": -2,
+	  "lfp": 1
+	},
+	"description": "Channels uncontrollable rage and power. Bearer of Wrath.",
+	"locked": false
+  },
+  {
+	"name": "The Eclipse",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_eclipse.png",
+	"modifiers": {
+	  "res": 3,
+	  "mag": 2,
+	  "hte": -2,
+	  "fai": 1
+	},
+	"description": "Embodies balance between light and dark. Harbinger of Duality.",
 	"locked": true
+  },
+  {
+	"name": "The Obsidian",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_obsidian.png",
+	"modifiers": {
+	  "def": 3,
+	  "res": 2,
+	  "spd": -2,
+	  "lfp": 1
+	},
+	"description": "Embodies resilience and hidden power. Bearer of Endurance.",
+	"locked": true
+  },
+  {
+	"name": "The Whisperer",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_whisperer2.png",
+	"modifiers": {
+	  "fai": 3,
+	  "mag": 2,
+	  "res": -2,
+	  "exp": 1
+	},
+	"description": "Embody secrets and subtle influence. Keeper of Whispers.",
+	"locked": false
+  },
+  {
+	"name": "The Thorned",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_thorned.png",
+	"modifiers": {
+	  "def": 3,
+	  "res": 2,
+	  "lfp": -2,
+	  "fai": 1
+	},
+	"description": "Embodies beauty and pain intertwined. Bearer of Thorns.",
+	"locked": false
+  },
+  {
+	"name": "The Cryptkeeper",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_cryptkeeper.png",
+	"modifiers": {
+	  "def": 3,
+	  "mag": 2,
+	  "lfp": -2,
+	  "res": 1
+	},
+	"description": "Guardianship over the dead and their secrets. Keeper of the Silent.",
+	"locked": false
+  },
+  {
+	"name": "The Sentinel",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_sentinel.png",
+	"modifiers": {
+	  "def": 3,
+	  "res": 2,
+	  "spd": -2,
+	  "atk": 1
+	},
+	"description": "Eternal protector and watchful eye. Unyielding Guardian.",
+	"locked": false
+  },
+  {
+	"name": "The Faceless",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_faceless.png",
+	"modifiers": {
+	  "spd": 3,
+	  "res": 2,
+	  "mag": -2,
+	  "hte": 1
+	},
+	"description": "Shifts identities and masks their true self. Bearer of Many Faces.",
+	"locked": false
+  },
+  {
+	"name": "The Shattered",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_shattered2.png",
+	"modifiers": {
+	  "mag": 3,
+	  "res": 2,
+	  "lfp": -2,
+	  "exp": 1
+	},
+	"description": "Embraces fractured reality and inner turmoil. Keeper of Broken Minds.",
+	"locked": false
+  },
+  {
+	"name": "The Voidwalker",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_voidwalker.png",
+	"modifiers": {
+	  "res": 3,
+	  "spd": 2,
+	  "def": -2,
+	  "fai": 1
+	},
+	"description": "Embodies journeys into the unknown void. Explorer of the Abyss.",
+	"locked": false
+  },
+  {
+	"name": "The Gravedigger",
+	"color": "#ffffff",
+	"image": "res://deity/deity_image_gravedigger.png",
+	"modifiers": {
+	  "def": 3,
+	  "res": 2,
+	  "mag": -2,
+	  "exp": 1
+	},
+	"description": "Embodies the cycle of life and death. Keeper of the Resting.",
+	"locked": false
   }
 ]

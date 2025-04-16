@@ -13,18 +13,18 @@ script = ExtResource("1_faoww")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 33.0
-offset_right = 672.0
-offset_bottom = 81.0
+offset_left = 470.0
+offset_top = 32.0
+offset_right = 678.0
+offset_bottom = 80.0
 color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 342.0
-offset_top = 44.0
-offset_right = 801.0
-offset_bottom = 75.0
+offset_left = 352.0
+offset_top = 45.0
+offset_right = 811.0
+offset_bottom = 76.0
 bbcode_enabled = true
 text = "New Run"
 fit_content = true
@@ -40,10 +40,10 @@ text = "Back"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 458.0
-offset_top = 88.0
-offset_right = 669.0
-offset_bottom = 135.0
+offset_left = 471.0
+offset_top = 87.0
+offset_right = 682.0
+offset_bottom = 134.0
 bbcode_enabled = true
 text = "Choose Your Deity"
 fit_content = true
@@ -54,20 +54,21 @@ layout_mode = 0
 offset_left = 13.0
 offset_top = 125.0
 offset_right = 1144.0
-offset_bottom = 414.0
+offset_bottom = 445.0
 follow_focus = true
 draw_focus_border = true
 
 [node name="DeityContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="SelectButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 510.0
-offset_right = 640.0
-offset_bottom = 617.0
+offset_left = 494.0
+offset_top = 529.0
+offset_right = 634.0
+offset_bottom = 636.0
 text = "Select"
 
 [node name="TooltipPanel" type="Panel" parent="."]
@@ -85,16 +86,18 @@ fit_content = true
 
 [node name="NavButtons" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 404.0
-offset_top = 441.0
-offset_right = 734.0
-offset_bottom = 494.0
+offset_left = 398.0
+offset_top = 469.0
+offset_right = 728.0
+offset_bottom = 522.0
 alignment = 1
 
 [node name="LeftButton" type="Button" parent="NavButtons"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "<"
 
 [node name="RightButton" type="Button" parent="NavButtons"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = ">"

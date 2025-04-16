@@ -76,16 +76,22 @@ func _load_deities():
 	_update_background()
 	_scroll_selected_card_to_center()
 
-
 func _highlight_selected_card():
 	for i in all_cards.size():
 		var card = all_cards[i]
+		var is_locked = false
+
+		# Get the deity index for this card
+		var deity_index = i - 4
+		if deity_index >= 0 and deity_index < deities.size():
+			is_locked = deities[deity_index].get("locked", false)
+
 		if i == selected_card_index:
-			card.scale = Vector2(1.1, 1.1)
-			card.modulate = Color(1, 0, 0, 1)
+			card.scale = Vector2(1, 1)
+			card.modulate = Color(0.8, 0.5, 0.5, 1) if is_locked else  Color(1, 0, 0, 1)  # dim red for locked, bright red for unlocked
 		else:
 			card.scale = Vector2(1, 1)
-			card.modulate = Color(1, 1, 1, 0.7)
+			card.modulate = Color(0.6, 0.6, 0.6, 1) if is_locked else Color(1, 1, 1, 0.7)
 
 func _update_background():
 	var deity_index = selected_card_index - 4
@@ -102,7 +108,17 @@ func _show_message(text: String):
 	popup.popup_centered()
 
 func _create_deity_card(deity: Dictionary) -> Control:
+	var panel = PanelContainer.new()
+	panel.add_theme_stylebox_override("panel", preload("res://theme/deity_card_border.tres"))
+	panel.custom_minimum_size = Vector2(170, 240)  # Optional: sets consistent card size
+	panel.add_theme_constant_override("margin_left", 2)
+	panel.add_theme_constant_override("margin_right", 2)
+	panel.add_theme_constant_override("margin_top", 2)
+	panel.add_theme_constant_override("margin_bottom", 2)
+
 	var box = VBoxContainer.new()
+	panel.add_child(box)
+
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.alignment = BoxContainer.ALIGNMENT_CENTER
 
@@ -110,19 +126,27 @@ func _create_deity_card(deity: Dictionary) -> Control:
 	name_label.text = "[LOCKED]" if deity.get("locked", false) else deity["name"]
 	box.add_child(name_label)
 
-	var img = TextureRect.new()
-	img.texture = load(deity["image"])
-	img.expand_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	img.custom_minimum_size = Vector2(128, 128)
-	box.add_child(img)
-
 	if deity.get("locked", false):
 		var lock_icon = TextureRect.new()
 		lock_icon.texture = load("res://deity/lock.png")
 		lock_icon.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
-		lock_icon.custom_minimum_size = Vector2(32, 32)
+		lock_icon.custom_minimum_size = Vector2(128, 128)
 		box.add_child(lock_icon)
+		
+		for stat in deity["modifiers"].keys():
+			var mod_label = RichTextLabel.new()
+			mod_label.bbcode_enabled = true
+			mod_label.text = " "
+			mod_label.scroll_active = false
+			mod_label.fit_content = true
+			box.add_child(mod_label)
 	else:
+		var img = TextureRect.new()
+		img.texture = load(deity["image"])
+		img.expand_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		img.custom_minimum_size = Vector2(128, 128)
+		box.add_child(img)
+		
 		for stat in deity["modifiers"].keys():
 			var mod_label = RichTextLabel.new()
 			mod_label.bbcode_enabled = true
@@ -130,8 +154,11 @@ func _create_deity_card(deity: Dictionary) -> Control:
 			mod_label.scroll_active = false
 			mod_label.fit_content = true
 			box.add_child(mod_label)
-
-	box.tooltip_text = deity.get("description", "No information available.")
+	
+	if deity.get("locked"):
+		box.tooltip_text = "?????"
+	else:
+		box.tooltip_text = deity.get("description", "No information available.")
 	
 	# Capture the index at the moment this card is added
 	var this_index = all_cards.size()
@@ -142,8 +169,13 @@ func _create_deity_card(deity: Dictionary) -> Control:
 			_update_background()
 			_scroll_selected_card_to_center()
 	)
+	
+	if deity.get("locked", false):
+		panel.modulate = Color(0.6, 0.6, 0.6, 1)  # Dimmed gray
+	else:
+		panel.modulate = Color(1, 1, 1, 1)  # Normal brightness
 
-	return box
+	return panel
 
 func _create_empty_card() -> Control:
 	var box = VBoxContainer.new()
